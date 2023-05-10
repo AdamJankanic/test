@@ -1,20 +1,16 @@
 const express = require("express");
 const app = express();
-
-const https = require("https");
+const http = require("http");
 const cors = require("cors");
 
 app.use(cors());
-
-// Rest of your code...
-const server = https.createServer(app);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-const port = process.env.PORT || 3000;
+const server = http.createServer(app);
 
-server.listen(port, () => {
-  console.log("listening on *:" + port);
+server.listen(3000, () => {
+  console.log("listening on *:3000");
 });
